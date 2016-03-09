@@ -1,0 +1,89 @@
+#!/usr/bin/python
+
+print("You will be asked to rate your desire to see various tourist sights, by ranking types of sights on a scale of 1 to 4, 4 being the type of sight you most want to see, 4 being the type of sight you least want to see. You will also be asked how many days you are staying in this city")
+
+artlist=["MFA", "ICA", "Isabella Steward Gardner Museum"]
+artnum=len(artlist)
+
+historylist=["freedom trail", "North End", "Navy Yard", "JFK House", "Black Heritage Trail", "Boston Common",]
+historynum=len(historylist)
+
+modernlist=["Cambridge","Museum of Science", "MIT Museum", "Prudential Center"]
+modernnum=len(modernlist)
+
+
+days=input("How many days will you be in Boston?"    )
+if days == "1":
+    d = 1
+    print("you will be in Boston for 1 day")
+if days == "2":
+    d = 2
+    print("you will be in Boston for 2 day")
+if days == "3":
+    d = 3
+    print("you will be in Boston for 3 days")
+
+
+
+
+artrank=input("how important are art-related sights to you? Rank on a scale of 1 to 3, 1 being most important, 3 being least important. You may not use this number ranking again.")
+if artrank == "1":
+   artrankvar = 1
+   print ("art rank is 1")
+
+if artrank == "2":
+   artrankvar = 2
+   print ("art rank is 2")
+    
+if artrank == "3":
+   artrankvar = 3
+   print ("art rank is 3")
+
+
+
+artmax = round((artnum*d*d)/(3*d*artrankvar))
+
+historyrank=input("how important are history-related sights to you? Rank on a scale of 1 to 3, 1 being most important, 3 being least important. You may not use this number ranking again.")
+if historyrank == "1":
+   historyrankvar = 1
+   print ("history rank is 1")
+
+if historyrank == "2":
+   historyrankvar = 2
+   print ("history rank is 2")
+    
+if historyrank == "3":
+   historyrankvar = 3
+   print ("History rank is 3")
+if historyrank == artrank:
+    sys.exit()
+
+
+historymax = round((historynum*d*d)/(3*d*historyrankvar))
+
+
+modernrank=input("how important are modern day sights to you? Rank on a scale of 1 to 3, 1 being most important, 3 being least important. You may not use this number ranking again.")
+if modernrank == "1":
+   modernrankvar = 1
+   print ("modern rank is 1")
+
+if modernrank == "2":
+   modernrankvar = 2
+   print ("modern rank is 2")
+    
+if modernrank == "3":
+   modernrankvar = 3
+   print ("modern rank is 3")
+if modernrank == historyrank:
+    sys.exit()
+if modernrank == artrank:
+    sys.exit()
+    
+modernmax = round((modernnum*d*d)/(3*d*modernrankvar))
+
+
+
+print("Visit these sights as your priority")
+print(artlist[0:artmax])
+print(historylist[0:historymax])
+print(modernlist[0:modernmax])
