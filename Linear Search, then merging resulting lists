@@ -1,0 +1,51 @@
+
+print "this program will demonstrate a search for lists containing the terms x and d: the following are lists we have"
+
+c1 = ["a", "b", "x"]
+c2 = ["b", "x", "y"]
+c3 = ["a", "b", "y"]
+c4 = ["y", "d", "x"]
+
+print c1
+print c2
+print c3
+print c4
+
+print "now we will show the set of lists which contain either d, x, or both of these"
+
+ctotal = [c1, c2, c3, c4]
+ctotalnames = ["c1", "c2", "c3", "c4"]
+
+index = 0
+index2 = 0
+cnewx = []
+cnewy = []
+def findx():
+    global index
+    global cnewx
+    if "x" in ctotal[index]:
+        cnewx.insert(index, ctotalnames[index])
+        index = index + 1
+        if index < len(ctotal):
+            findx()
+    else:
+        index = index + 1
+        if index < len(ctotal):
+            findx()
+def findy():
+    global index2
+    global cnewy
+    if "d" in ctotal[index2]:
+        cnewy.insert(index2, ctotalnames[index2])
+        index2 = index2 + 1
+        if index2 < len(ctotal):
+            findy()
+    else:
+        index2 = index2 + 1
+        if index2 < len(ctotal):
+            findy()
+findx()
+findy()
+newlist = cnewx + cnewy
+listset = list(set(newlist))
+print listset
