@@ -1,3 +1,3 @@
 # PythonCode
 
-travel guide app coded with python
+various small programs coded with python
